@@ -4,12 +4,30 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  caret-color: greenyellow;
+  transition: all 0.4s ease;
+
 }
 
-@theme inline {
+::selection{
+  background: rgba(0, 128, 0, 0.4);
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Space Mono", monospace;
+  --font-sans: "Space Mono";
+  --animate-openup: openup 0.5s ease-in-out;
+	@keyframes openup {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +40,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Mono";
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+*{
+  scrollbar-width: none;
 }

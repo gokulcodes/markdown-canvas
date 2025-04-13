@@ -30,3 +30,11 @@ ul {
 code {
 	background-color: azure;
 }
+
+blockquote{
+	padding: 20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-left: 1px solid white;
+	background-color: rgba(255,255,255, 0.1);
+}
