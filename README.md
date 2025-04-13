@@ -1,3 +1,5 @@
+![Markdown Canvas](https://github.com/gokulcodes/markdown-canvas/blob/main/public/poster.png 'Markdown Canvas')
+
 # Markdown Canvas
 A simple lightweight markdown previewer with extensive customizability
 
