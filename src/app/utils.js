@@ -191,7 +191,9 @@ function Digester(content, tabs = "") {
         }
         temp.push(lines[j]);
       }
-      response.push(`<code>${temp.join("\n")}</code>`);
+      response.push(
+        `<pre class="bg-white/5 p-4"><code>${temp.join("\n")}</code></pre>`
+      );
       i = j;
     } else if (line.substr(0, 2) === "![") {
       let i = 1,
@@ -234,10 +236,51 @@ function Digester(content, tabs = "") {
       let j = 0;
       while (j < line.length && line[j] === "\t") j++;
       response.push(`<pre>${line.substr(j)}</pre>`);
+    } else if (tokens[0] == "|") {
+      let lj = i,
+        rows = [];
+      while (lines[lj][0] === "|") {
+        let line = lines[lj];
+        let column = line.split(" ");
+        column = column.filter(Boolean);
+
+        let values = [];
+        for (let i = 0; i < column.length; i++) {
+          let j = i + 1,
+            str = [];
+          while (j < column.length && column[j] != "|") {
+            str.push(column[j]);
+            j++;
+          }
+          i = j - 1;
+          values.push(str.join(" "));
+        }
+        rows.push(values.filter(Boolean));
+        lj++;
+      }
+
+      i = lj - 1;
+
+      response.push(
+        `<table>${rows
+          .map(
+            (row, ind) =>
+              `<tr>${row
+                .map((col) =>
+                  ind === 0
+                    ? `<th>${wordParser(col)}</th>`
+                    : `<td>${wordParser(col)}</td>`
+                )
+                .join("")}</tr>`
+          )
+          .join("")}</table>`
+      );
+      console.log(line);
     } else if (line.length > 0) {
       response.push(`<p>${wordParser(line.substr(0))}</p>`);
     }
   }
+  console.log(response.join(""));
   return response.join("");
 }
 

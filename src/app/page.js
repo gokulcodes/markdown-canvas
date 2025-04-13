@@ -1,7 +1,13 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Markdown from "@/components";
-import { LuBold, LuItalic, LuUnderline } from "react-icons/lu";
+import {
+  LuBold,
+  LuCode,
+  LuItalic,
+  LuStrikethrough,
+  LuUnderline,
+} from "react-icons/lu";
 
 export default function Home() {
   const [input, setInput] = useState("");
@@ -57,6 +63,10 @@ export default function Home() {
       concat = first + `_${second}_`;
     } else if (type === "italic") {
       concat = first + `*${second}*`;
+    } else if (type === "strike") {
+      concat = first + `~~${second}~~`;
+    } else if (type === "code") {
+      concat = first + `<code>${second}</code>`;
     }
     concat += third;
     setInput(concat);
@@ -87,6 +97,18 @@ export default function Home() {
             >
               <LuItalic />
             </button>
+            <button
+              className="px-5 py-3 cursor-pointer hover:bg-white/20 rounded-lg bg-white/10"
+              onClick={() => handleHighlighter("strike")}
+            >
+              <LuStrikethrough />
+            </button>
+            <button
+              className="px-5 py-3 cursor-pointer hover:bg-white/20 rounded-lg bg-white/10"
+              onClick={() => handleHighlighter("code")}
+            >
+              <LuCode />
+            </button>
           </div>
           <div
             className="bg-transparent border border-white/20 focus-within:border-white/40 transition-all w-full h-full rounded-2xl overflow-hidden"
@@ -112,7 +134,7 @@ export default function Home() {
           <Markdown>{input}</Markdown>
         </div>
       )}
-      <div className="fixed shadow-2xl flex self-center bg-black border border-white/20 p-2 rounded-full bottom-20">
+      <div className="fixed shadow-2xl flex self-center bg-black border border-white/20 p-2 rounded-full bottom-10">
         <div className="relative" ref={containerRef}>
           <button
             onClick={() => handleNavigation("canvas")}

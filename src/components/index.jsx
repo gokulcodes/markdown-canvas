@@ -18,7 +18,6 @@ function Markdown({ children, width }) {
 
   return (
     <div
-      // style={{ width: `${width}%` }}
       className="w-full rounded-2xl overflow-hidden break-words overflow-y-scroll text-left font-sans border border-white/20 p-10"
       ref={ref}
     ></div>

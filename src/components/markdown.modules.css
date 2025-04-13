@@ -28,7 +28,9 @@ ul {
 }
 
 code {
-	background-color: azure;
+	/* background-color: rgba(255,255,255, 0.1); */
+	/* padding: 20px; */
+	font-family: "Space Mono";
 }
 
 blockquote{
@@ -37,4 +39,22 @@ blockquote{
 	margin-bottom: 10px;
 	border-left: 1px solid white;
 	background-color: rgba(255,255,255, 0.1);
+}
+
+table, tr, td, th{
+	border: 1px solid gray;
+	padding: 10px 20px;
+}
+/* 
+tr{
+	border: 1px solid white
+}
+
+td, th{
+	border: 1px solid white;
+} */
+
+a{
+	text-decoration: underline;
+	color: #4493f8;
 }
