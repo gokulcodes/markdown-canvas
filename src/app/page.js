@@ -1,43 +1,39 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-// import { Digester } from "./utils";
+import { useState } from "react";
 import Markdown from "@/components";
 
 export default function Home() {
-  // const ref = useRef();
   const [input, setInput] = useState("");
-
-  // useEffect(() => {
-  //   if (input && input.length) {
-  //     ref.current.innerHTML = Digester(input);
-  //   }
-  // }, [input]);
-
+  const [textSize, setTextSize] = useState(100);
   function handleInput(event) {
     setInput(event.target.value);
   }
 
+  function onEnd(event) {
+    if (event.clientX) setTextSize((event.clientX / window.innerWidth) * 100);
+  }
+
   return (
     <div className="flex flex-col w-full h-full">
-      {/* <img className="w-48 py-4 self-center invert" src="/next.svg" /> */}
-      <div className="flex flex-row h-full items-start gap-2 p-2 ">
-        <div className="bg-white/10 w-full h-full">
+      <img className="w-48 py-4 self-center invert" src="/next.svg" />
+      <div className="flex md:flex-row flex-col h-full items-start gap-2 p-2 ">
+        <div
+          className="bg-white/10 w-full h-full"
+          style={{ width: `${textSize}%` }}
+        >
           <textarea
             value={input}
             placeholder="your markdown canvas"
             onChange={handleInput}
-            className="w-full h-[100vh] resize-none field outline-none p-4"
-            // rows={10}
-            // cols={10}
+            className="w-full h-[100vh] field outline-none p-4 font-sans"
           ></textarea>
         </div>
         <div
           draggable
-          className="h-[100vh] w-2 bg-white/20"
-          onDragStart={(e) => console.log(e)}
-          onDragEnd={(e) => console.log(e)}
+          className="h-[100vh] focus:bg-white/40 hover:bg-white/40 w-2 bg-white/20 cursor-ew-resize"
+          onDrag={onEnd}
         />
-        <Markdown>{input}</Markdown>
+        <Markdown width={100 - textSize}>{input}</Markdown>
       </div>
     </div>
   );
