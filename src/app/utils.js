@@ -278,6 +278,8 @@ function Digester(content, tabs = "") {
       console.log(line);
     } else if (line.length > 0) {
       response.push(`<p>${wordParser(line.substr(0))}</p>`);
+    } else {
+      response.push(`<br />`);
     }
   }
   console.log(response.join(""));
