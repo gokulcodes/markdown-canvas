@@ -26,6 +26,22 @@ export default function RootLayout({ children }) {
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet"
       />
+
+      <meta property="og:title" content="Markdown Canvas" />
+      <meta
+        property="og:description"
+        content="A simple lightweight markdown previewer with extensive customizability"
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://markdowncanvas.netlify.app/" />
+      <meta
+        property="og:image"
+        content="https://raw.githubusercontent.com/gokulcodes/markdown-canvas/main/public/poster.png"
+      />
+      <meta property="og:site_name" content="Markdown Canvas" />
+
+      <meta property="og:locale" content="en_US" />
+      <meta property="og:updated_time" content="2025-04-14T06:42:11.155Z" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

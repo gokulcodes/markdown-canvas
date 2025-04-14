@@ -4,9 +4,11 @@ import Markdown from "@/components";
 import {
   LuBold,
   LuCode,
+  LuGithub,
   LuHighlighter,
   LuItalic,
   LuStrikethrough,
+  LuTwitter,
   LuUnderline,
 } from "react-icons/lu";
 
@@ -135,7 +137,7 @@ export default function Home() {
               id="canvas"
               placeholder="your markdown canvas"
               onChange={handleInput}
-              className="w-full h-[100vh] resize-none field outline-none p-4 font-sans"
+              className="w-full h-[80vh] resize-none field outline-none p-4 font-sans"
             ></textarea>
           </div>
           {/* <div
@@ -146,12 +148,37 @@ export default function Home() {
         <Markdown width={100 - textSize}>{input}</Markdown> */}
         </div>
       ) : (
-        <div className="flex self-center h-full items-center justify-center md:w-8/12 w-full  p-4 ">
+        <div className="flex self-center items-center justify-center md:w-8/12 w-full  p-4 ">
           <Markdown>{input}</Markdown>
         </div>
       )}
+      <footer className=" md:w-8/12 w-full flex flex-col md:flex-row gap-10 px-20 justify-between items-center mb-40 mt-5 self-center">
+        <p>Made by gokul_varadan</p>
+        <div className="flex gap-10">
+          <a
+            href="https://github.com/gokulcodes/markdown-canvas"
+            target="_blank"
+            className="flex gap-2 items-center justify-center"
+          >
+            <LuGithub />
+            GitHub
+          </a>
+          <a
+            href="https://x.com/gokul_varadan"
+            className="flex gap-2 items-center justify-center"
+            target="_blank"
+          >
+            <LuTwitter />
+            x.com
+          </a>
+        </div>
+      </footer>
       <div className="fixed shadow-2xl flex self-center bg-white dark:bg-black border border-white/20 p-2 rounded-full bottom-10">
         <div className="relative" ref={containerRef}>
+          <div
+            ref={highlightRef}
+            className="bg-gradient-to-t transition-transform absolute left-0 mix-blend-difference top-0 bg-white rounded-full h-full"
+          />
           <button
             onClick={() => handleNavigation("canvas")}
             ref={canvasButtonRef}
@@ -166,10 +193,6 @@ export default function Home() {
           >
             Preview
           </button>
-          <div
-            ref={highlightRef}
-            className="bg-gradient-to-t transition-transform -z-10 from-green-400 absolute left-0 top-0 to-green-900 rounded-full h-full"
-          />
         </div>
       </div>
     </div>
