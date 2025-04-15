@@ -74,7 +74,7 @@ export default function Home() {
     } else if (type === "strike") {
       concat = first + `~~${second}~~`;
     } else if (type === "code") {
-      concat = first + `<code>${second}</code>`;
+      concat = first + "`" + second + "`";
     } else if (type === "highlight") {
       concat = first + `==${second}==`;
     }
@@ -127,6 +127,12 @@ export default function Home() {
             >
               <LuHighlighter />
             </button>
+            <select className="hover:bg-black/20 hover:dark:bg-white/20 p-2 rounded-lg dark:bg-white/10 bg-black/10">
+              <option>Host Grotesk</option>
+              <option>Poppins</option>
+              <option>Open Sans</option>
+              <option>Times New Roman</option>
+            </select>
           </div>
           <div
             className="bg-transparent border border-black/20 dark:border-white/20 focus-within:border-black/40 focus-within:dark:border-white/40 transition-all w-full h-full rounded-2xl overflow-hidden"
@@ -149,7 +155,13 @@ export default function Home() {
         </div>
       ) : (
         <div className="flex self-center items-center justify-center md:w-8/12 w-full  p-4 ">
-          <Markdown>{input}</Markdown>
+          {input.length ? (
+            <Markdown>{input}</Markdown>
+          ) : (
+            <div className="w-full h-[80vh] resize-none field outline-none p-4 font-sans flex items-center justify-center bg-transparent border border-black/20 dark:border-white/20 focus-within:border-black/40 focus-within:dark:border-white/40 transition-all rounded-2xl overflow-hidden">
+              <img className="w-40" src="/preview.gif" />
+            </div>
+          )}
         </div>
       )}
       <footer className=" md:w-8/12 w-full flex flex-col md:flex-row gap-10 px-20 justify-between items-center mb-40 mt-5 self-center">

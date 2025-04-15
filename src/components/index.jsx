@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useRef } from "react";
-import { Digester } from "../app/utils";
+import { Digester } from "@gokulvaradan/markdown-parser/dist";
 import "./markdown.modules.css";
 import PropTypes from "prop-types";
 
@@ -18,7 +19,7 @@ function Markdown({ children, width }) {
 
   return (
     <div
-      className="w-full rounded-2xl dark:bg-transparent bg-white overflow-hidden break-words overflow-y-scroll text-left font-sans border border-black/10 dark:border-white/20 p-10 h-[88vh]"
+      className="w-full rounded-2xl dark:bg-transparent bg-white overflow-hidden break-words overflow-y-scroll text-left font-sans border border-black/10 dark:border-white/20 p-4 md:p-6 h-[88vh]"
       ref={ref}
     ></div>
   );
