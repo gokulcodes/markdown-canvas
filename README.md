@@ -1,6 +1,6 @@
 ![Markdown Canvas](https://github.com/gokulcodes/markdown-canvas/blob/main/public/poster.png 'Markdown Canvas')
 
-<a href="https://www.npmjs.com/package/@gokulvaradan/markdown-parser"><img alt="npm" src="https://img.shields.io/badge/NPM-MarkdownParser-darkgreen?style=flat-rounded&logo=npm"></a>
+Built on top of my custom package for Markdown Parser: <a href="https://www.npmjs.com/package/@gokulvaradan/markdown-parser"><img alt="npm" src="https://img.shields.io/badge/NPM-MarkdownParser-darkgreen?style=flat-rounded&logo=npm"></a>
 
 # Markdown Canvas
 A simple lightweight markdown previewer with extensive customizability
