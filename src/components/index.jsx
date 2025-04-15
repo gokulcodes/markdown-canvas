@@ -19,7 +19,7 @@ function Markdown({ children, width }) {
 
   return (
     <div
-      className="w-full rounded-2xl dark:bg-transparent bg-white overflow-hidden break-words overflow-y-scroll text-left font-sans border border-black/10 dark:border-white/20 p-4 md:p-6 h-[88vh]"
+      className="w-full leading-8 rounded-2xl dark:bg-transparent bg-white overflow-hidden break-words overflow-y-scroll text-left font-sans border border-black/10 dark:border-white/20 p-4 md:p-6 h-[88vh]"
       ref={ref}
     ></div>
   );

@@ -60,3 +60,11 @@ a{
 	text-decoration: underline;
 	color: #4493f8;
 }
+
+ul{
+	list-style-type: disc;
+}
+
+ol li{
+	margin-left: 30px;
+}
