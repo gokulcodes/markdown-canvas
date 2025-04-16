@@ -1,10 +1,10 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
   caret-color: green;
+  /* font-family: "Space Grotesk"; */
   transition: all 0.6s ease-in-out;
 }
 
@@ -15,8 +15,9 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Space Mono";
+  /* --font-sans: "Space Mono"; */
   --animate-openup: openup 0.5s ease-in-out;
+  --animate-opacity: opacity 0.3s ease-in-out;
 	@keyframes openup {
 		0% {
 			opacity: 0;
@@ -25,6 +26,14 @@
 		100% {
 			opacity: 1;
 			transform: translateY(0px);
+		}
+	}
+	@keyframes opacity {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 }
@@ -44,11 +53,8 @@
 }
 
 body {
-  
   background: var(--background);
   color: var(--foreground);
-  font-family: "Space Mono";
-  /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 *{
