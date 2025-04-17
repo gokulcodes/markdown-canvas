@@ -12,6 +12,7 @@ const reducer = (state, action) => {
     case "switch":
       return { ...state, activeView: action.payload };
     case "onTextChange":
+      localStorage.setItem("text", action.payload);
       return { ...state, text: action.payload };
     case "onFontChange":
       return { ...state, fontStyle: action.payload };
