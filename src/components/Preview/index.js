@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import { Digester } from "@gokulvaradan/markdown-parser/dist";
+import markdown from "@gokulvaradan/markdown-parser/dist";
 import "./markdown.modules.css";
 import canvasContext from "@/controller/canvasContext";
 
@@ -9,7 +9,7 @@ function Preview() {
 
   useEffect(() => {
     if (text) {
-      const htmlText = Digester(text);
+      const htmlText = markdown.parse(text);
       previewRef.current.innerHTML = `<div>${htmlText}</div>`;
     }
   }, [text]);
