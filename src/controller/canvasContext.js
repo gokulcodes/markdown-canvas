@@ -4,6 +4,7 @@ import { fonts } from "../../config";
 const state = {
   activeView: 0,
   text: "",
+  expandView: false,
   fontStyle: fonts[0],
 };
 
@@ -16,6 +17,8 @@ const reducer = (state, action) => {
       return { ...state, text: action.payload };
     case "onFontChange":
       return { ...state, fontStyle: action.payload };
+    case "expand":
+      return { ...state, expandView: !state.expandView };
   }
 };
 

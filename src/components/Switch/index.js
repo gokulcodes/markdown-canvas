@@ -2,7 +2,7 @@ import canvasContext from "@/controller/canvasContext";
 import { useContext, useEffect, useRef } from "react";
 
 export default function Switch() {
-  const { activeView, dispatch } = useContext(canvasContext);
+  const { activeView, expandView, dispatch } = useContext(canvasContext);
   const canvasButtonRef = useRef();
   const highlightRef = useRef();
   const previewButtonRef = useRef();
@@ -29,6 +29,9 @@ export default function Switch() {
     }
   }, [activeView, dispatch]);
 
+  if (expandView) {
+    return null;
+  }
   return (
     <div className="fixed shadow-2xl flex self-center bg-white dark:bg-black border border-white/20 p-2 rounded-full bottom-10">
       <div className="relative" ref={containerRef}>

@@ -1,5 +1,11 @@
+import canvasContext from "@/controller/canvasContext";
+import { useContext } from "react";
 import { LuGithub, LuTwitter } from "react-icons/lu";
 export default function Footer() {
+  const { expandView } = useContext(canvasContext);
+  if (expandView) {
+    return null;
+  }
   return (
     <footer className=" md:w-8/12 w-full flex flex-col md:flex-row gap-10 px-20 justify-between items-center mb-40 mt-5 self-center">
       <p>Made by gokul_varadan</p>
